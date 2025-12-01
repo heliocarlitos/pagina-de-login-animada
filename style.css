@@ -1,0 +1,266 @@
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100dvh;
+  margin: auto;
+}
+
+section .sing-up {
+  display: flex;
+  width: 100%;
+}
+
+section .sing-up .option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: var(--bg-gradient);
+  padding: 30px;
+  width: 50%;
+  top: 0;
+  height: 100dvh;
+  color: var(--white);
+  transition: all 0.3s ease;
+  position: absolute;
+  z-index: 9999;
+  text-align: center;
+
+  & .option-1,
+  & .option-2 {
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+section .sing-up .option .input-check {
+  display: none;
+}
+
+section .sing-up .option label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--white);
+  height: 40px;
+  width: 100%;
+  max-width: 150px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+
+  &:active {
+    transform: scale(95%);
+  }
+}
+
+section .sing-up .section-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  width: 50%;
+  padding: 30px;
+  position: absolute;
+  top: 0;
+  transition: all 0.3s ease;
+  height: 100dvh;
+}
+
+section .sing-up .section-form .social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 300px;
+
+  & button {
+    border: 1px solid var(--cinza);
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: var(--blue-dark);
+      border: 1px solid transparent;
+      color: var(--white);
+    }
+  }
+}
+
+section .sing-up .section-form .form p {
+  text-align: center;
+}
+
+section .sing-up .section-form .form,
+section .sing-up .section-form .form .box-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 350px;
+}
+
+section .sing-up .section-form .form .box-input input {
+  border: 1px solid var(--cinza);
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  border-radius: 10px;
+
+  &:focus {
+    border: 1px solid var(--black);
+  }
+}
+
+section .sing-up .section-form .form button {
+  background-color: var(--blue-dark);
+  color: var(--white);
+  height: 50px;
+  border-radius: 10px;
+  width: calc(100% + 25px);
+
+  &:hover,
+  &:focus {
+    background-color: var(--blue-light);
+  }
+
+  &:active {
+    transform: scale(98%);
+  }
+}
+
+@media screen and (min-width: 550px) {
+  section:has(:not(input:checked)) {
+    & .option {
+      transform: translateX(0);
+      border-radius: 0 7vw 7vw 0;
+    }
+
+    & .section-form {
+      transform: translateX(100%);
+    }
+
+    & .section-form-login {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  section:has(input:checked) {
+    & .option {
+      transform: translateX(100%);
+      border-radius: 7vw 0 0 7vw;
+    }
+
+    & .section-form {
+      transform: translateX(0);
+    }
+
+    & .section-form-login {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    & .section-form-sing-up {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  section:has(:not(input:checked)) {
+    & .option-1 {
+      display: none !important;
+    }
+  }
+
+  section:has(input:checked) {
+    & .option-2 {
+      display: flex !important;
+    }
+
+    & .option-1 {
+      display: none !important;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  section,
+  section .sing-up,
+  section .sing-up .option,
+  section .sing-up .section-form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  section .sing-up .section-form {
+    transform: translateY(90px);
+  }
+
+  section .sing-up .section-form-login {
+    margin-top: 50px;
+  }
+
+  section .sing-up .option {
+    height: 240px;
+    flex-direction: column;
+    padding: 0 20px;
+    border-radius: 0 0 10vw 10vw;
+  }
+
+  section .sing-up .option-1,
+  section .sing-up .option-2 {
+    transition: 0.3s ease;
+  }
+
+  section:has(:not(input:checked)) {
+    & .option-2 {
+      margin-top: -170px;
+      margin-left: -300%;
+    }
+  }
+
+  section:has(input:checked) {
+    & .option-1 {
+      margin-left: -300%;
+    }
+
+    & .option-2 {
+      margin-left: 0;
+    }
+  }
+
+  section:has(:not(input:checked)) {
+    & .section-form-login {
+      transform: translateX(-100%);
+    }
+  }
+
+  section:has(input:checked) {
+    & .section-form-login {
+      transform: translateX(0);
+    }
+
+    & .section-form-sing-up {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+@media screen and (max-width: 338px) {
+  section .sing-up .option-1,
+  section .sing-up .option-2 {
+    gap: 10px !important;
+    height: 200px;
+  }
+}

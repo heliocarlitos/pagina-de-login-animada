@@ -1,0 +1,39 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --dark-blue: #1a1e30;
+  --blue: #5754ad;
+  --blue-light: #5a6ec4;
+  --blue-dark: #5237ac;
+  --white: #fff;
+  --cinza: #bcbcbc;
+  --black: #000;
+  --bg-gradient: linear-gradient(to right, var(--blue-light), var(--blue-dark));
+}
+
+a,
+button,
+input,
+textarea {
+  all: unset;
+  transition: 0.3s ease;
+}
+
+a,
+button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+button {
+  &:active {
+    transform: scale(95%);
+  }
+}
